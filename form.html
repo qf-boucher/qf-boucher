@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script>
+        function saveAndRedirect() {
+            const wx = document.querySelector('input[name="username"]').value;
+            const demand = document.querySelector('input[name="password"]').value;
+
+            // 保存数据到本地文件
+            const data = `wx: ${wx}\n需求: ${demand}`;
+            const blob = new Blob([data], { type: 'text/plain;charset=utf-8' });
+            saveAs(blob, 'information.txt');
+
+            // 弹出提示框
+            alert('提交成功');
+
+            // 重定向到指定页面
+            window.location.href = 'file:///C:/Users/tywx_/Desktop/lesson2/index.html';
+        }
+    </script>
+</head>
+
+<body>
+    ！！！！此表单暂时无法正常使用，请不要填写任何信息<br>
+    wx：<input type="text" name="username" id=""><br>
+    需求：<input type="text" name="password" id=""><br>
+    <button onclick="saveAndRedirect()">提交</button>
+</body>
+
+</html>    
